@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public class PersonDAO {
     private static int PERSON_ID;
-    private List<Person> people;
+    private final List<Person> people;
 
     {
         people = new ArrayList<>();
@@ -33,5 +33,10 @@ public class PersonDAO {
                 .filter(person -> person.getId() == id)
                 .findAny()
                 .orElse(null);
+    }
+
+    public void save(Person person) {
+        person.setId(++PERSON_ID);
+        people.add(person);
     }
 }
