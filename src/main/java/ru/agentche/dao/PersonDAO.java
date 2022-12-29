@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public class PersonDAO {
     private static int PERSON_ID;
-    private List<Person> people;
+    private final List<Person> people;
 
     {
         people = new ArrayList<>();
